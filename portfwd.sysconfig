@@ -1,7 +1,0 @@
-# Customized setings for portfwd
-
-# Define nice level for portfwd 
-#SERVICE_RUN_NICE_LEVEL="0"
-
-# one can place "-t" or "-f" here
-PORTFWD_OPTIONS=""
