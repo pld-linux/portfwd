@@ -68,6 +68,22 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/portfwd
 
 gzip -9nf CREDITS README TODO cfg/* contrib/suggestions.txt doc/FAQ doc/conf.txt
 
+%post
+/sbin/chkconfig --add portfwd
+if [ -f /var/lock/subsys/portfwd ]; then
+        /etc/rc.d/init.d/portfwd restart 1>&2
+else
+        echo "Run \"/etc/rc.d/init.d/portfwd start\" to start portfwd."
+fi
+
+%preun
+if [ "$1" = "0" ]; then
+        if [ -f /var/lock/subsys/portfwd ]; then
+                /etc/rc.d/init.d/portfwd stop 1>&2
+        fi
+        /sbin/chkconfig --del portfwd
+fi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
