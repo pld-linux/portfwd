@@ -87,8 +87,6 @@ if [ "$1" = "0" ]; then
         /sbin/chkconfig --del portfwd
 fi
 
-
-
 %files
 %defattr(644,root,root,755)
 %doc *.gz cfg/*.gz contrib/*.gz doc/*.gz
