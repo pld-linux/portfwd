@@ -6,11 +6,6 @@ Release:	2
 License:	GPL
 Vendor:		Everton da Silva Marques
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(es):	Red/Servidores
-Group(fr):	Réseau/Serveurs
-Group(pl):	Sieciowe/Serwery
-Group(pt):	Rede/Server
 Source0:	ftp://ftp.sourceforge.net/pub/sorceforge/portfwd/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am_fixes.patch
 PAtch1:		%{name}-ac_fixes.patch
