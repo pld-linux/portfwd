@@ -43,8 +43,8 @@ pakiety UDP na zewnêtrzne hosty. Cechy:
 %build
 rm -f config/missing
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure
 %{__make}
