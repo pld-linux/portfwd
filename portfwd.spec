@@ -1,5 +1,5 @@
-Summary:	A port forwarder
-Summary(pl):	Forwarder portów
+Summary:	User-space port forwarder
+Summary(pl):	Forwarder portów dzia³aj±cy w przestrzeni u¿ytkownika
 Name:		portfwd
 Version:	0.26
 Release:	1
