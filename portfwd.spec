@@ -61,8 +61,6 @@ install cfg/empty.cfg $RPM_BUILD_ROOT%{_sysconfdir}/portfwd.cfg
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/portfwd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/portfwd
 
-gzip -9nf CREDITS README TODO cfg/* contrib/suggestions.txt doc/FAQ doc/conf.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -84,7 +82,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz cfg/*.gz contrib/*.gz doc/*.gz
+%doc CREDITS README TODO cfg/* contrib/suggestions.txt doc/FAQ doc/conf.txt
 %attr(755,root,root) %{_sbindir}/portfwd
 %{_mandir}/man?/*
 %attr(754,root,root) /etc/rc.d/init.d/portfwd
