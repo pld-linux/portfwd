@@ -1,11 +1,10 @@
-%define _rc     rc6
 Summary:	A port forwarder that works with IPChains and IPFWADM
 Summary(pl):	Forwarder portów dzia³aj±cy z ipchains i ipfwadm
 Name:		portfwd
 Version:	0.26
-Release:	0.rc6
+%define _rc     rc6
+Release:	0.%{_rc}.1
 License:	GPL
-Vendor:		Everton da Silva Marques
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	9706c8c4c4551c079f3e76abf985b64d
@@ -40,7 +39,6 @@ pakiety UDP na zewnêtrzne hosty. Cechy:
 %setup  -q -n %{name}-%{version}%{_rc}
 
 %build
-rm -f config/missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -83,7 +81,7 @@ fi
 %defattr(644,root,root,755)
 %doc CREDITS README TODO cfg/* contrib/suggestions.txt doc/FAQ doc/conf.txt
 %attr(755,root,root) %{_sbindir}/portfwd
-%{_mandir}/man?/*
 %attr(754,root,root) /etc/rc.d/init.d/portfwd
 %config(noreplace) %verify(not size mtime md5) /etc/sysconfig/portfwd
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/portfwd.cfg
+%{_mandir}/man?/*
