@@ -6,7 +6,7 @@ Release:	2
 License:	GPL
 Vendor:		Everton da Silva Marques
 Group:		Networking/Daemons
-Source0:	ftp://ftp.sourceforge.net/pub/sorceforge/portfwd/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am_fixes.patch
 PAtch1:		%{name}-ac_fixes.patch
 Source1:	%{name}.init
