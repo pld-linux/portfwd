@@ -2,7 +2,7 @@ Summary:	A port forwarder that works with IPChains and IPFWADM
 Summary(pl):	Forwarder portów dzia³aj±cy z ipchains i ipfwadm
 Name:		portfwd
 Version:	0.26
-%define _rc     rc6
+%define	_rc	rc6
 Release:	0.%{_rc}.1
 License:	GPL
 Group:		Networking/Daemons
@@ -36,7 +36,7 @@ pakiety UDP na zewnêtrzne hosty. Cechy:
 - przekierowywanie FTP - wymagaj±ce dwóch portów.
 
 %prep
-%setup  -q -n %{name}-%{version}%{_rc}
+%setup -q -n %{name}-%{version}%{_rc}
 
 %build
 %{__aclocal}
@@ -64,17 +64,17 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /sbin/chkconfig --add portfwd
 if [ -f /var/lock/subsys/portfwd ]; then
-        /etc/rc.d/init.d/portfwd restart 1>&2
+	/etc/rc.d/init.d/portfwd restart 1>&2
 else
-        echo "Run \"/etc/rc.d/init.d/portfwd start\" to start portfwd."
+	echo "Run \"/etc/rc.d/init.d/portfwd start\" to start portfwd."
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-        if [ -f /var/lock/subsys/portfwd ]; then
-                /etc/rc.d/init.d/portfwd stop 1>&2
-        fi
-        /sbin/chkconfig --del portfwd
+	if [ -f /var/lock/subsys/portfwd ]; then
+		/etc/rc.d/init.d/portfwd stop 1>&2
+	fi
+	/sbin/chkconfig --del portfwd
 fi
 
 %files
