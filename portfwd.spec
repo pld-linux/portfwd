@@ -44,7 +44,7 @@ pakiety UDP na zewnêtrzne hosty. Cechy:
 rm -f config/missing
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure
 %{__make}
