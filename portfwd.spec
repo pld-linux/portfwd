@@ -68,6 +68,9 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/portfwd
 
 gzip -9nf CREDITS README TODO cfg/* contrib/suggestions.txt doc/FAQ doc/conf.txt
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 /sbin/chkconfig --add portfwd
 if [ -f /var/lock/subsys/portfwd ]; then
@@ -84,16 +87,7 @@ if [ "$1" = "0" ]; then
         /sbin/chkconfig --del portfwd
 fi
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
-%post
-/sbin/chkconfig --add portfwd
-
-%postun
-if [ "$1" = "0" ]; then
-	/sbin/chkconfig --del portfwd
-fi
 
 %files
 %defattr(644,root,root,755)
