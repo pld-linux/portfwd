@@ -7,12 +7,18 @@ License:	GPL
 Vendor:		Everton da Silva Marques
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
+Group(es):	Red/Servidores
+Group(fr):	Réseau/Serveurs
 Group(pl):	Sieciowe/Serwery
+Group(pt):	Rede/Server
 Source0:	ftp://ftp.sourceforge.net/pub/sorceforge/portfwd/%{name}-%{version}.tar.gz
+Patch0:		%{name}-am_fixes.patch
+PAtch1:		%{name}-ac_fixes.patch
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 URL:		http://portfwd.sourceforge.net/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	libstdc++-devel
 Prereq:		/sbin/chkconfig
@@ -36,23 +42,26 @@ pakiety UDP na zewnêtrzne hosty. Cechy:
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
+rm -f config/missing
+aclocal
 autoconf
+automake -a -c
+CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
 %configure
-
-%{__make} \
-	CFLAGS="%{rpmcflags}" \
-	CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_sysconfdir},/etc/{rc.d/init.d,sysconfig},%{_mandir}/man{5,8}}
+install -d $RPM_BUILD_ROOT/etc/{rc.d/init.d,sysconfig}
 
-install src/portfwd $RPM_BUILD_ROOT%{_sbindir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install cfg/empty.cfg $RPM_BUILD_ROOT%{_sysconfdir}/portfwd.cfg
-install doc/portfwd.8 $RPM_BUILD_ROOT%{_mandir}/man8
-install doc/portfwd.cfg.5 $RPM_BUILD_ROOT%{_mandir}/man5
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/portfwd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/portfwd
