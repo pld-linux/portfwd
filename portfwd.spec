@@ -7,6 +7,7 @@ License:	GPL
 Vendor:		Everton da Silva Marques
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}.tar.gz
+# Source0-md5:	5e479e02693a48f7339fd1ef09e8023d
 Patch0:		%{name}-am_fixes.patch
 PAtch1:		%{name}-ac_fixes.patch
 Source1:	%{name}.init
