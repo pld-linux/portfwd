@@ -42,7 +42,7 @@ pakiety UDP na zewnêtrzne hosty. Cechy:
 
 %build
 rm -f config/missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 CXXFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions"
