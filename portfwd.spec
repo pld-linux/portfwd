@@ -3,11 +3,12 @@ Summary:	A port forwarder that works with IPChains and IPFWADM
 Summary(pl):	Forwarder portów dzia³aj±cy z ipchains i ipfwadm
 Name:		portfwd
 Version:	0.26
-Release:	1
+Release:	0.rc6
 License:	GPL
 Vendor:		Everton da Silva Marques
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}%{_rc}.tar.gz
+# Source0-md5:	9706c8c4c4551c079f3e76abf985b64d
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 URL:		http://portfwd.sourceforge.net/
