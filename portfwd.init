@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # portfwd	this program starts and stops the portfwd
-#	        daemon.
+#		daemon.
 #
 # chkconfig:	345 82 18
 #
@@ -21,9 +21,13 @@
 [ -f /etc/sysconfig/portfwd ] && . /etc/sysconfig/portfwd
 
 # Check that networking is up.
-if [ "${NETWORKING}" = "no" ]; then
-	echo "WARNING: Networking is down. portfwd can't be run."
-	exit 1
+if is_yes "${NETWORKING}"; then
+	if [ ! -f /var/lock/subsys/network ]; then
+		msg_network_down portfwd
+		exit 1
+	fi
+else
+	exit 0
 fi
 
 # Sanity check
@@ -42,7 +46,7 @@ case "$1" in
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/portfwd
 	else
-		msg_Already_Running "portfwd"
+		msg_already_running "portfwd"
 		exit 1
 	fi
 	;;
@@ -52,12 +56,12 @@ case "$1" in
 		killproc portfwd
 		rm -f /var/lock/subsys/portfwd >/dev/null 2>&1
 	else
-		msg_Not_Running "portfwd"
+		msg_not_running "portfwd"
 		exit 1
 	fi
 	;;
   status)
-  	status portfwd
+	status portfwd
 	exit $?
 	;;
   restart|reload)
@@ -65,8 +69,8 @@ case "$1" in
 	$0 start
 	;;
   *)
-	msg_Usage "$0 {start|stop|status|restart|reload}"
-        exit 1
+	msg_usage "$0 {start|stop|restart|reload|status}"
+	exit 1
 esac
 
 exit $RETVAL
