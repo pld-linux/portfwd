@@ -14,8 +14,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	libstdc++-devel
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,6 +81,6 @@ fi
 %doc CREDITS README TODO cfg/* contrib/suggestions.txt doc/FAQ doc/conf.txt
 %attr(755,root,root) %{_sbindir}/portfwd
 %attr(754,root,root) /etc/rc.d/init.d/portfwd
-%config(noreplace) %verify(not size mtime md5) /etc/sysconfig/portfwd
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/portfwd.cfg
+%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/portfwd
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/portfwd.cfg
 %{_mandir}/man?/*
