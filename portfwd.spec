@@ -14,6 +14,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	libstdc++-devel
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,17 +63,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add portfwd
-if [ -f /var/lock/subsys/portfwd ]; then
-	/etc/rc.d/init.d/portfwd restart 1>&2
-else
-	echo "Run \"/etc/rc.d/init.d/portfwd start\" to start portfwd."
-fi
+%service portfwd restart
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/portfwd ]; then
-		/etc/rc.d/init.d/portfwd stop 1>&2
-	fi
+	%service portfwd stop
 	/sbin/chkconfig --del portfwd
 fi
 
