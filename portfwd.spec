@@ -2,7 +2,7 @@ Summary:	User-space port forwarder
 Summary(pl):	Forwarder portów dzia³aj±cy w przestrzeni u¿ytkownika
 Name:		portfwd
 Version:	0.26
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}.tar.gz
@@ -57,6 +57,7 @@ install cfg/empty.cfg $RPM_BUILD_ROOT%{_sysconfdir}/portfwd.cfg
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/portfwd
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/portfwd
+rm -rf $RPM_BUILD_ROOT%{_prefix}/doc/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
