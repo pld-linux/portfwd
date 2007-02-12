@@ -1,5 +1,5 @@
 Summary:	User-space port forwarder
-Summary(pl):	Forwarder port體 dzia砤j眂y w przestrzeni u縴tkownika
+Summary(pl.UTF-8):   Forwarder port贸w dzia艂aj膮cy w przestrzeni u偶ytkownika
 Name:		portfwd
 Version:	0.26
 Release:	2
@@ -27,13 +27,13 @@ remote hosts. Features:
 - multiple ports forwarded from one config file
 - FTP forwarding, which requires two ports.
 
-%description -l pl
-PortFwd, autorstwa Evertona de Silva Marquesa, jest ma硑m narz阣ziem w
-C++ dzia砤j眂ym w user-space, przekierowuj眂ym po潮czenia TCP lub
-pakiety UDP na zewn阾rzne hosty. Cechy:
-- przekierowywanie zale縩e od portu 紃骴硂wego
-- konfiguracja wielu port體 w jednym pliku konfiguracyjnym
-- przekierowywanie FTP - wymagaj眂e dw骳h port體.
+%description -l pl.UTF-8
+PortFwd, autorstwa Evertona de Silva Marquesa, jest ma艂ym narz臋dziem w
+C++ dzia艂aj膮cym w user-space, przekierowuj膮cym po艂膮czenia TCP lub
+pakiety UDP na zewn臋trzne hosty. Cechy:
+- przekierowywanie zale偶ne od portu 藕r贸d艂owego
+- konfiguracja wielu port贸w w jednym pliku konfiguracyjnym
+- przekierowywanie FTP - wymagaj膮ce dw贸ch port贸w.
 
 %prep
 %setup -q
