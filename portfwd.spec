@@ -1,5 +1,5 @@
 Summary:	User-space port forwarder
-Summary(pl.UTF-8):   Forwarder portów działający w przestrzeni użytkownika
+Summary(pl.UTF-8):	Forwarder portów działający w przestrzeni użytkownika
 Name:		portfwd
 Version:	0.26
 Release:	2
