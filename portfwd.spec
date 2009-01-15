@@ -1,12 +1,12 @@
 Summary:	User-space port forwarder
 Summary(pl.UTF-8):	Forwarder portów działający w przestrzeni użytkownika
 Name:		portfwd
-Version:	0.26
-Release:	2
+Version:	0.29
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}.tar.gz
-# Source0-md5:	bd15556136f1067ed7440907372bf9c8
+# Source0-md5:	93161c91e12b0d67ca52dc13708a2f2f
 Source1:	%{name}.init
 Source2:	%{name}.sysconfig
 URL:		http://portfwd.sourceforge.net/
@@ -29,8 +29,8 @@ remote hosts. Features:
 
 %description -l pl.UTF-8
 PortFwd, autorstwa Evertona de Silva Marquesa, jest małym narzędziem w
-C++ działającym w user-space, przekierowującym połączenia TCP lub
-pakiety UDP na zewnętrzne hosty. Cechy:
+C++ działającym w przestrzeni użytkownika, przekierowującym połączenia
+TCP lub pakiety UDP na zewnętrzne hosty. Cechy:
 - przekierowywanie zależne od portu źródłowego
 - konfiguracja wielu portów w jednym pliku konfiguracyjnym
 - przekierowywanie FTP - wymagające dwóch portów.
