@@ -2,7 +2,7 @@ Summary:	User-space port forwarder
 Summary(pl.UTF-8):	Forwarder portów działający w przestrzeni użytkownika
 Name:		portfwd
 Version:	0.29
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/portfwd/%{name}-%{version}.tar.gz
